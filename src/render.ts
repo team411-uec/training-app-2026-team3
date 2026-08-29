@@ -21,7 +21,18 @@ export function renderResult(result: OmikujiResult | null): void {
   console.log("引いた結果:", result);
 
   // TODO（ステップ1）: ここに DOM 操作を書いて、画面に結果を表示する。
+    const resultElement = document.getElementById("result");
+  if (!resultElement) return;
+ if (result === null) {
+  resultElement.textContent = "ここに結果が出ます";
+  resultElement.className = "omikuji-result";
+} else {
+  resultElement.textContent = result;
+
+  resultElement.className = `omikuji-result ${result}`;
 }
+}
+
 
 // 拡張ポイント（ステップ2以降）。必要になったら関数を足す。
 //  - 履歴をリスト表示する: document.createElement で <li> を作り、<ul id="history"> に足す関数。

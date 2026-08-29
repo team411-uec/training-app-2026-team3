@@ -15,15 +15,17 @@
         margin: 24px;
         font-family: sans-serif;
         line-height: 1.6;
+        background-color: #d97cbd89;
       }
 
       .omikuji-result {
+        width: 250px;
         margin: 16px 0;
         padding: 16px;
         font-size: 32px;
         text-align: center;
-        border: 1px solid #ccc;
-        border-radius: 8px;
+        border: 5px solid purple;
+        border-radius: 50px;
       }
 
       .omikuji-controls button {
@@ -31,25 +33,69 @@
         padding: 8px 16px;
         font-size: 16px;
         cursor: pointer;
+         border-radius: 30px;
       }
+
+
+
+      .omikuji-result.大吉 {
+  color: red;
+}
+
+.omikuji-result.中吉 {
+  color: orange;
+}
+
+.omikuji-result.吉 {
+  color: green;
+}
+
+.omikuji-result.小吉 {
+  color: blue;
+}
+
+.omikuji-result.末吉 {
+  color: purple;
+}
+
+.omikuji-result.凶 {
+  background-color: black;
+    animation: darken 3s;
+  color: white;
+}
+
+@keyframes darken {
+  0% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
     </style>
   </head>
 
   <body>
-    <h1>おみくじアプリ</h1>
-    <p>「おみくじを引く」ボタンを押してみましょう。</p>
+ 
+    <h1>🔮今日の運勢🔮</h1>
+  <p>今日のあなたの運勢は・・・</p>
+     <!-- 操作ボタン。クリック時の処理は main.ts で結びつけている。 -->
+     <div class="omikuji-controls">
+      <button id="draw-button">ここをクリック</button>
+       <button id="reset-button">リセット</button>
+    </div>
+  
+
+  
 
     <!--
       結果を表示する場所。render.ts が id="result" を取得して書き換える。
       ステップ1 を実装するまでは、この固定の文言のまま変わらない。
     -->
-    <div id="result" class="omikuji-result">ここに結果が出ます</div>
+    <div id="result" class="omikuji-result">運勢は・・・</div>
 
-    <!-- 操作ボタン。クリック時の処理は main.ts で結びつけている。 -->
-    <div class="omikuji-controls">
-      <button id="draw-button">おみくじを引く</button>
-      <button id="reset-button">リセット</button>
-    </div>
+     <p>今日も笑顔溢れる素敵な1日になりますように✨</p>
 
     <!--
       拡張ポイント（ステップ2以降で使う空きエリア）。使わないうちは消してもよい。
