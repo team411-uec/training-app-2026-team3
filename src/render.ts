@@ -23,8 +23,11 @@ export function renderResult(result: OmikujiResult | null): void {
   if (!resultElement) return;
   if (result === null) {
     resultElement.textContent = "ここに結果が出ます";
+    resultElement.className = "omikuji-result";
   } else {
     resultElement.textContent = result;
+
+    resultElement.className = `omikuji-result ${result}`;
   }
 }
 
