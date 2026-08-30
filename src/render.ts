@@ -21,6 +21,9 @@ export function renderResult(result: OmikujiResult | null): void {
   // TODO（ステップ1）: ここに DOM 操作を書いて、画面に結果を表示する。
   const resultElement = document.getElementById("result");
   if (!resultElement) return;
+  resultElement.className = result
+    ? `omikuji-result ${result}`
+    : "omikuji-result";
   if (result === null) {
     resultElement.textContent = "ここに結果が出ます";
     resultElement.className = "omikuji-result";
